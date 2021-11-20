@@ -26,6 +26,8 @@ The jupyter notebook file **'../Arvato Project Workbook.ipynb'** contains all of
 - Trains and tunes a model using scikit-learn's Pipeline and RandomSearchCV for customer prediction
 - Compares models for scikit-learn's RadomForestClassifier, LogisticRegression, GradientBoostingClassifier
 
+The file **'../Arvato Project Workbook.html'** is a html version of the project notebook.
+
 ## Instructions<a name="instructions"></a>
 
 Run the cells in the jupyter notebook file.

@@ -14118,10 +14118,10 @@ Name: D19_LETZTER_KAUF_BRANCHE, dtype: int64</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">customer_in</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">frac</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Function that applies cleaning steps:</span>
-<span class="sd">    1. Custom Cleaning</span>
+<span class="sd">    1. Custom cleaning</span>
 <span class="sd">    2. Remove and store extra columns for customers data</span>
 <span class="sd">    3. Remove duplicate data</span>
-<span class="sd">    4. Remove columns with many of nan values</span>
+<span class="sd">    4. Remove columns with &#39;frac&#39; nan values</span>
 <span class="sd">    5. Remove columns with no variability</span>
 <span class="sd">    6. Parse strings with digits into floats</span>
 <span class="sd">    7. Extract year from date</span>
@@ -14130,6 +14130,7 @@ Name: D19_LETZTER_KAUF_BRANCHE, dtype: int64</pre>
 <span class="sd">    INPUT</span>
 <span class="sd">    df - data (DataFrame)</span>
 <span class="sd">    customer_in - set &#39;True&#39; for customer data, &#39;False&#39; for azdias data (boolean)</span>
+<span class="sd">    frac - fraction of nan values allowed in a column (float)</span>
 <span class="sd">    </span>
 <span class="sd">    OUTPUT</span>
 <span class="sd">    df - cleaned data (DataFrame)</span>
@@ -16037,6 +16038,15 @@ Name: features, dtype: object</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for Logistic Regression</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    cv - GridSearchCV object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
         <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">Scaler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">Imputer</span><span class="p">()),</span>
@@ -16055,6 +16065,23 @@ Name: features, dtype: object</pre>
 
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function finds the best model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    fpr - false positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    tpr - true positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    threshold - thresholds on the decision function used to compute fpr and tpr (ndarray)</span>
+<span class="sd">    y_scores - class probabilities of the test samples for the best model (ndarray)</span>
+<span class="sd">    best_parameters - parameter setting for the best estimator (dict)</span>
+<span class="sd">    best_estimator - estimator which gave highest score (object)</span>
+<span class="sd">    results - number of features for best scores (dict)</span>
+<span class="sd">    best_auc - mean cross-validated auc-score for the best model (float)</span>
+<span class="sd">    auc_test_select - auc-score for the best model on the test data (float)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># load explanatory and response variables</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
     <span class="n">best_auc</span> <span class="o">=</span> <span class="mi">0</span>
@@ -16179,6 +16206,15 @@ Best parameters:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for RandomForest</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    cv - GridSearchCV object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
         <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">Scaler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">Imputer</span><span class="p">()),</span>
@@ -16198,6 +16234,23 @@ Best parameters:
 
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function finds the best model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    fpr - false positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    tpr - true positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    threshold - thresholds on the decision function used to compute fpr and tpr (ndarray)</span>
+<span class="sd">    y_scores - class probabilities of the test samples for the best model (ndarray)</span>
+<span class="sd">    best_parameters - parameter setting for the best estimator (dict)</span>
+<span class="sd">    best_estimator - estimator which gave highest score (object)</span>
+<span class="sd">    results - number of features for best scores (dict)</span>
+<span class="sd">    best_auc - mean cross-validated auc-score for the best model (float)</span>
+<span class="sd">    auc_test_select - auc-score for the best model on the test data (float)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># load explanatory and response variables</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
     <span class="n">best_auc</span> <span class="o">=</span> <span class="mi">0</span>
@@ -16322,6 +16375,15 @@ Best parameters:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for Gradient Boost</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    cv - GridSearchCV object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
         <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">Scaler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">)),</span>
         <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">Imputer</span><span class="p">()),</span>
@@ -16341,6 +16403,23 @@ Best parameters:
 
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function finds the best model.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    None</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    fpr - false positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    tpr - true positive rates for the test data for the best model (ndarray)</span>
+<span class="sd">    threshold - thresholds on the decision function used to compute fpr and tpr (ndarray)</span>
+<span class="sd">    y_scores - class probabilities of the test samples for the best model (ndarray)</span>
+<span class="sd">    best_parameters - parameter setting for the best estimator (dict)</span>
+<span class="sd">    best_estimator - estimator which gave highest score (object)</span>
+<span class="sd">    results - number of features for best scores (dict)</span>
+<span class="sd">    best_auc - mean cross-validated auc-score for the best model (float)</span>
+<span class="sd">    auc_test_select - auc-score for the best model on the test data (float)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># load explanatory and response variables</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
     <span class="n">best_auc</span> <span class="o">=</span> <span class="mi">0</span>

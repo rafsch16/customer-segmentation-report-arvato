@@ -16039,7 +16039,10 @@ Name: features, dtype: object</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for Logistic Regression</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    This function builds the ML model using the following steps:</span>
+<span class="sd">    1. Create pipline object using a list of (key, value) pairs</span>
+<span class="sd">    2. Create dictinary of parameters to be optimized</span>
+<span class="sd">    3. Create GridSearchCV object</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
@@ -16066,7 +16069,13 @@ Name: features, dtype: object</pre>
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function finds the best model.</span>
+<span class="sd">    This function finds the best model using the folowing steps:</span>
+<span class="sd">    1. Load explanatory and response variables</span>
+<span class="sd">    2. Perform a loop for an increasing number of features</span>
+<span class="sd">    3. Clean the explanatory variables</span>
+<span class="sd">    3. Split the data in train and test datasets</span>
+<span class="sd">    4. Train model and predict on test dataset</span>
+<span class="sd">    5. Store the best estimator, parameters, number of features and AUC score</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
@@ -16207,7 +16216,10 @@ Best parameters:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for RandomForest</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    This function builds the ML model using the following steps:</span>
+<span class="sd">    1. Create pipline object using a list of (key, value) pairs</span>
+<span class="sd">    2. Create dictinary of parameters to be optimized</span>
+<span class="sd">    3. Create GridSearchCV object</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
@@ -16235,7 +16247,13 @@ Best parameters:
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function finds the best model.</span>
+<span class="sd">    This function finds the best model using the folowing steps:</span>
+<span class="sd">    1. Load explanatory and response variables</span>
+<span class="sd">    2. Perform a loop for an increasing number of features</span>
+<span class="sd">    3. Clean the explanatory variables</span>
+<span class="sd">    3. Split the data in train and test datasets</span>
+<span class="sd">    4. Train model and predict on test dataset</span>
+<span class="sd">    5. Store the best estimator, parameters, number of features and AUC score</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
@@ -16376,7 +16394,10 @@ Best parameters:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build model for Gradient Boost</span>
 <span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function builds the ML model.</span>
+<span class="sd">    This function builds the ML model using the following steps:</span>
+<span class="sd">    1. Create pipline object using a list of (key, value) pairs</span>
+<span class="sd">    2. Create dictinary of parameters to be optimized</span>
+<span class="sd">    3. Create GridSearchCV object</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
@@ -16404,7 +16425,13 @@ Best parameters:
 <span class="c1"># main function</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    This function finds the best model.</span>
+<span class="sd">    This function finds the best model using the folowing steps:</span>
+<span class="sd">    1. Load explanatory and response variables</span>
+<span class="sd">    2. Perform a loop for an increasing number of features</span>
+<span class="sd">    3. Clean the explanatory variables</span>
+<span class="sd">    3. Split the data in train and test datasets</span>
+<span class="sd">    4. Train model and predict on test dataset</span>
+<span class="sd">    5. Store the best estimator, parameters, number of features and AUC score</span>
 <span class="sd">    </span>
 <span class="sd">    INPUT</span>
 <span class="sd">    None</span>
